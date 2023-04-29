@@ -1,5 +1,5 @@
 
-import { Card } from '../../model/card.model';
+import Card from '../../model/card.model';
 
 export const cardData: Card[] = [
   {

@@ -1,4 +1,4 @@
-export interface Card {
+export default interface Card {
   id: string | number;
   header: string;
   subHeader: string;
@@ -21,6 +21,7 @@ export enum Category {
   SMARTPHONES = 'Smartphones',
   LAPTOPS = 'laptops'
 }
+
 
 
 

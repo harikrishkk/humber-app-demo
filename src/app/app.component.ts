@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { cardData } from './components/card/card.data';
-import { Card } from './model/card.model';
+import Card from './model/card.model';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,12 @@ import { Card } from './model/card.model';
 export class AppComponent {
   title = 'humber-app-demo';
   cards: Card[] = cardData;
+  currentSelectedCard!: Card
+
+  handleCardSelect(card: Card) {
+    this.currentSelectedCard = card;
+    console.log("handle data from parent::", card)
+  }
 }
 
 
