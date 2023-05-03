@@ -6,6 +6,10 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './components/card/card.component';
+import { StockPipe } from './pipes/stock.pipe';
+import { WeekPipe } from './pipes/week.pipe';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RatingComponent } from './components/rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -13,11 +17,15 @@ import { CardComponent } from './components/card/card.component';
     BannerComponent,
     NavbarComponent,
     FooterComponent,
-    CardComponent
+    CardComponent,
+    StockPipe,
+    WeekPipe,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,18 +1,19 @@
 <div class="card">
-  <img [src]="card.thumbnail" class="card-img-top" [alt]="card.subHeader">
+  <img [ngStyle]="{ 'height': '260px'}" [src]="card.thumbnail" class="card-img-top" [alt]="card.subHeader">
   <div class="card-body">
     <h5 class="card-title"> {{ card.header }}</h5>
-    <p class="card-text"> {{ card.subHeader}}
+    <p class="card-text"> {{ trimText(card.subHeader)}}
     </p>
-
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Price: {{ card.price }}</li>
-    <li class="list-group-item">Rating: {{ card.rating }}</li>
-    <li class="list-group-item">Stock: {{ card.stock }}</li>
+    <li class="list-group-item">Price: {{ card.price | currency }}</li>
+    <li class="list-group-item">Rating: <app-rating [rating]="card.rating"></app-rating>
+    </li>
+    <li class="list-group-item">Stock: {{ card.stock | stock }}</li>
   </ul>
   <div class="card-body">
     <a href="#" class="btn btn-dark">More Info</a>
-    <button (click)="handleClick()" class="ms-3 btn btn-primary">Add to cart</button>
+    <button [disabled]="isDisabled" (click)="handleClick()"
+      [ngClass]="{'btn-primary': !isDisabled, 'btn-secondary': isDisabled}" class="ms-3 btn">Add to cart</button>
   </div>
 </div>

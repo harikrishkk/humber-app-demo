@@ -10,9 +10,16 @@ export class CardComponent {
   @Input() card!: Card;
   @Output() onCardSelect = new EventEmitter<Card>();
 
-  handleClick() {
-    this.onCardSelect.emit(this.card)
+  trimText(text: string) {
+    return text.substring(0, 75) + '...'
+  }
+
+  get isDisabled() {
+    return this.card.stock === 0
   }
 
 
+  handleClick() {
+    this.onCardSelect.emit(this.card)
+  }
 }

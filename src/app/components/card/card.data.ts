@@ -8,7 +8,7 @@ export const cardData: Card[] = [
     subHeader: 'An apple mobile which is nothing like apple',
     price: 549,
     rating: 4.5,
-    stock: 94,
+    stock: 8,
     brand: 'Apple',
     category: 'Smartphones',
     thumbnail: "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
@@ -19,7 +19,7 @@ export const cardData: Card[] = [
     subHeader: 'SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with',
     price: 899,
     rating: 4.5,
-    stock: 0,
+    stock: 2,
     brand: 'Apple',
     category: 'Smartphones',
     thumbnail: "https://i.dummyjson.com/data/products/2/thumbnail.jpg"

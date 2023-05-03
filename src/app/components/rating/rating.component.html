@@ -1,0 +1,10 @@
+<span>
+  <span *ngFor="let star of ratingStars">
+    <fa-icon [icon]="faStar"></fa-icon>
+  </span>
+
+  <span *ngIf="hasDecimal">
+    <fa-icon [icon]="faStarHalfStroke"></fa-icon>
+  </span>
+
+</span>
