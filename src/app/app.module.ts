@@ -10,6 +10,7 @@ import { StockPipe } from './pipes/stock.pipe';
 import { WeekPipe } from './pipes/week.pipe';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RatingComponent } from './components/rating/rating.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RatingComponent } from './components/rating/rating.component';
   imports: [
     BrowserModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

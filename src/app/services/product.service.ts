@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { cardData } from '../components/card/card.data';
+import { Observable } from 'rxjs';
 import Card from '../model/card.model';
 
 @Injectable({
@@ -7,11 +8,9 @@ import Card from '../model/card.model';
 })
 export class ProductService {
 
-  private cardData = cardData;
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-  getCardData(): Card[] {
-    return this.cardData
+  getCardData(): Observable<any> {
+    return this.http.get('https://productdemo-85335-default-rtdb.firebaseio.com/products.json')
   }
 }

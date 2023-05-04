@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import Card from './model/card.model';
 import { ProductService } from './services/product.service';
 
@@ -7,17 +8,31 @@ import { ProductService } from './services/product.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'humber-app-demo';
-  cards: Card[] = [];
+  cards: any;
   currentSelectedCard!: Card;
+  sub!: Subscription;
 
   constructor(private productService: ProductService) {
 
   }
 
   ngOnInit(): void {
-    this.cards = this.productService.getCardData();
+    this.sub = this.productService.getCardData().subscribe(
+      data => {
+        const response = []
+        for (let key in data) {
+          console.log(key)
+          const responseItem = {
+            id: key,
+            ...data[key]
+          }
+          response.push(responseItem)
+          this.cards = response
+        }
+      }
+    )
   }
 
 
@@ -25,6 +40,13 @@ export class AppComponent implements OnInit {
     this.currentSelectedCard = card;
     console.log("handle data from parent::", card)
   }
+
+  ngOnDestroy(): void {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
+  }
+
 }
 
 
