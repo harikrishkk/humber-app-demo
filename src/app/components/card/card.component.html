@@ -9,7 +9,8 @@
     <li class="list-group-item">Price: {{ card.price | currency }}</li>
     <li class="list-group-item">Rating: <app-rating [rating]="card.rating"></app-rating>
     </li>
-    <li class="list-group-item">Stock: {{ card.stock | stock }}</li>
+    <li [ngStyle]="{'color': card.stock  === 0 ? 'red' : 'black'}" class="list-group-item">Stock: {{ card.stock | stock
+      }}</li>
   </ul>
   <div class="card-body">
     <a href="#" class="btn btn-dark">More Info</a>

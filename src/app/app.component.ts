@@ -1,16 +1,25 @@
-import { Component } from '@angular/core';
-import { cardData } from './components/card/card.data';
+import { Component, OnInit } from '@angular/core';
 import Card from './model/card.model';
+import { ProductService } from './services/product.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'humber-app-demo';
-  cards: Card[] = cardData;
-  currentSelectedCard!: Card
+  cards: Card[] = [];
+  currentSelectedCard!: Card;
+
+  constructor(private productService: ProductService) {
+
+  }
+
+  ngOnInit(): void {
+    this.cards = this.productService.getCardData();
+  }
+
 
   handleCardSelect(card: Card) {
     this.currentSelectedCard = card;
