@@ -10,7 +10,12 @@ import { StockPipe } from './pipes/stock.pipe';
 import { WeekPipe } from './pipes/week.pipe';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RatingComponent } from './components/rating/rating.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './pages/home/home.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { ProductsComponent } from './pages/products/products.component'
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -21,13 +26,17 @@ import { HttpClientModule } from '@angular/common/http'
     CardComponent,
     StockPipe,
     WeekPipe,
-    RatingComponent
+    RatingComponent,
+    HomeComponent,
+    ContactComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
