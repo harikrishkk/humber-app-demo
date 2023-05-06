@@ -16,6 +16,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ProductsComponent } from './pages/products/products.component'
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     HomeComponent,
     ContactComponent,
     ProductsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
