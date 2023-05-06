@@ -15,6 +15,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ProductsComponent } from './pages/products/products.component'
 import { AppRoutingModule } from './app-routing.module';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AppRoutingModule } from './app-routing.module';
     RatingComponent,
     HomeComponent,
     ContactComponent,
-    ProductsComponent
+    ProductsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

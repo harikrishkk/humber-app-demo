@@ -13,8 +13,12 @@ export class BannerComponent {
     cta: "Check out all Products",
     url: "https://www.amazon.ca/"
   }
+  constructor() {
+
+  }
   handleClick() {
     console.log("CLicked the jumbotron button ")
+
   }
 }
 
