@@ -13,7 +13,7 @@
       }}</li>
   </ul>
   <div class="card-body">
-    <a href="#" class="btn btn-dark">More Info</a>
+    <a [routerLink]="['/products', card.id]" class="btn btn-dark">More Info</a>
     <button [disabled]="isDisabled" (click)="handleClick()"
       [ngClass]="{'btn-primary': !isDisabled, 'btn-secondary': isDisabled}" class="ms-3 btn">Add to cart</button>
   </div>
