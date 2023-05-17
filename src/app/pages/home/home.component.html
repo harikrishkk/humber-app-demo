@@ -2,7 +2,9 @@
 
 <section *ngIf="(cards$ | async) as cards" class="pt-4">
   <div class="container px-lg-5">
-
+    <div *ngIf="isSubmitted" class="alert alert-primary" role="alert">
+      Thank you! The form was submitted...
+    </div>
 
     <div *ngIf="currentSelectedCard" class="alert alert-primary" role="alert">
       You selected {{ currentSelectedCard.header }}

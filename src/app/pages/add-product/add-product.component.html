@@ -1,0 +1,92 @@
+<div class="container mt-4">
+  <h1 class="mb-4"> Add New Product</h1>
+
+  <form #f="ngForm" (ngSubmit)="onFormSubmit(f)">
+    <!-- <pre> {{ f.value | json }} </pre> -->
+    <div class="mb-3">
+      <label class="form-label">Product Title</label>
+      <input required name="header" #header="ngModel" [ngClass]="{'is-invalid': !header.valid && header.touched}"
+        ngModel type="text" class="form-control" placeholder="Product Title">
+      <div *ngIf="!header.valid && header.touched" class="text-danger"> This field is required</div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Product Description</label>
+      <input required #subHeader="ngModel" [ngClass]="{'is-invalid': !subHeader.valid && subHeader.touched}"
+        name="subHeader" ngModel type="text" class="form-control" placeholder="Product Description">
+      <div *ngIf="!subHeader.valid && subHeader.touched" class="text-danger"> Description is required</div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Brand</label>
+      <input name="brand" [ngClass]="{'is-invalid': !brand.valid && brand.touched}" #brand="ngModel" ngModel type="text"
+        required class="form-control" placeholder="Brand">
+      <div *ngIf="!brand.valid && brand.touched" class="text-danger fs-6 fst-italic">
+        Please provide a brand
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Category</label>
+      <select name="category" [ngClass]="{'is-invalid': !category.valid && category.touched}" #category="ngModel"
+        ngModel required class="form-select">
+        <option selected>Select</option>
+        <option value="smartphones">Smartphones</option>
+        <option value="laptops">laptops</option>
+      </select>
+      <div *ngIf="!category.valid && category.touched" class="text-danger fs-6 fst-italic">
+        Please provide a category
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Discount in %</label>
+      <input [ngClass]="{'is-invalid': !discount.valid && discount.touched}" #discount="ngModel"
+        name="discountPercentage" ngModel type="number" required class="form-control" placeholder="Discount">
+      <div *ngIf="!discount.valid && discount.touched" class="text-danger fs-6 fst-italic">
+        Please provide a discount
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Thumbnail</label>
+      <input [ngClass]="{'is-invalid': !thumbnail.valid && thumbnail.touched}" #thumbnail="ngModel" name="thumbnail"
+        ngModel type="text" required class="form-control" placeholder="Thumbnail">
+      <div *ngIf="!thumbnail.valid && thumbnail.touched" class="text-danger fs-6 fst-italic">
+        Please provide a thumbnail
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Price</label>
+      <input [ngClass]="{'is-invalid': !price.valid && price.touched}" #price="ngModel" name="price" ngModel
+        type="number" required class="form-control" placeholder="Price">
+      <div *ngIf="!price.valid && price.touched" class="text-danger fs-6 fst-italic">
+        Please provide a price
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Rating</label>
+      <input [ngClass]="{'is-invalid': !rating.valid && rating.touched}" #rating="ngModel" name="rating" ngModel
+        type="number" required class="form-control" placeholder="Rating">
+      <div *ngIf="!rating.valid && rating.touched" class="text-danger fs-6 fst-italic">
+        Please provide a rating
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Stock</label>
+      <input [ngClass]="{'is-invalid': !stock.valid && stock.touched}" #stock="ngModel" name="stock" ngModel
+        type="number" required class="form-control" placeholder="Stock">
+      <div *ngIf="!stock.valid && stock.touched" class="text-danger fs-6 fst-italic">
+        Please provide a stock
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <button [disabled]="!f.valid" type="submit" class="btn btn-primary mb-3">Add New Item</button>
+    </div>
+
+  </form>
+</div>

@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import Card from '../model/card.model';
+import { NewProduct } from '../model/product.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  formSubmitted$ = new BehaviorSubject(false);
 
   constructor(private http: HttpClient) { }
 
@@ -23,9 +25,24 @@ export class ProductService {
     )
   }
 
+  addNewProduct(form: NewProduct): Observable<any> {
+    const submittedProduct: NewProduct = {
+      header: form.header,
+      subHeader: form.subHeader,
+      price: form.price,
+      rating: form.rating,
+      stock: form.stock,
+      brand: form.brand,
+      category: form.category,
+      thumbnail: form.thumbnail
+    }
+    return this.http.post('https://productdemo-85335-default-rtdb.firebaseio.com/products.json', submittedProduct)
+  }
+
+
+
   getAllProductsByCategories(): Observable<any> {
     return this.http.get('https://productdemo-85335-default-rtdb.firebaseio.com/products.json').pipe(
-      tap((data) => console.log("The data i received from DB ", data)),
       map(responseObj => {
         const obj = {} as any;
         const categories: string[] = [];
@@ -52,7 +69,5 @@ export class ProductService {
   }
 
 
-  getProductById() {
 
-  }
 }

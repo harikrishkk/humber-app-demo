@@ -17,6 +17,10 @@ import { ProductsComponent } from './pages/products/products.component'
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { HoverDirective } from './directives/hover.directive';
+import { HighlightDirective } from './directives/highlight.directive';
+import { UnlessDirective } from './directives/unless.directive';
+import { AddProductComponent } from './pages/add-product/add-product.component';
 
 
 @NgModule({
@@ -33,7 +37,11 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
     ContactComponent,
     ProductsComponent,
     NotFoundComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    HoverDirective,
+    HighlightDirective,
+    UnlessDirective,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
