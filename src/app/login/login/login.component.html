@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <main class="form-signin w-100 m-auto">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+      <div class="form-floating mb-4">
+        <input [ngClass]="{'is-invalid': isEmailInvalid }" formControlName="email" type="email" class="form-control"
+          id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+        <div *ngIf="isEmailInvalid" class="text-danger fs-6 fst-italic">
+          Please provide a valid email
+        </div>
+      </div>
+      <div class="form-floating mb-4">
+        <input [ngClass]="{'is-invalid': isPasswordinValid }" formControlName="password" type="password"
+          class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+        <div *ngIf="isPasswordinValid" class="text-danger fs-6 fst-italic">
+          Please provide a password
+        </div>
+      </div>
+
+
+      <button [disabled]="loginForm.invalid" class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
+    </form>
+  </main>
+</div>

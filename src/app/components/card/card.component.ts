@@ -11,7 +11,7 @@ export class CardComponent {
   @Output() onCardSelect = new EventEmitter<Card>();
 
   trimText(text: string) {
-    return text.substring(0, 75) + '...'
+    return text?.substring(0, 75) + '...'
   }
 
   get isDisabled() {

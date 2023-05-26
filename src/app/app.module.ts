@@ -17,11 +17,14 @@ import { ProductsComponent } from './pages/products/products.component'
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
-import { HoverDirective } from './directives/hover.directive';
 import { HighlightDirective } from './directives/highlight.directive';
 import { UnlessDirective } from './directives/unless.directive';
 import { AddProductComponent } from './pages/add-product/add-product.component';
-
+import { FancyButtonComponent } from './fancy-button/fancy-button.component';
+import { LoginModule } from './login/login.module';
+import { GalleryModule } from 'ng-gallery';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -38,19 +41,23 @@ import { AddProductComponent } from './pages/add-product/add-product.component';
     ProductsComponent,
     NotFoundComponent,
     ProductDetailComponent,
-    HoverDirective,
     HighlightDirective,
     UnlessDirective,
-    AddProductComponent
+    AddProductComponent,
+    FancyButtonComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GalleryModule,
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

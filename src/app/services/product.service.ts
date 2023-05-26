@@ -39,8 +39,6 @@ export class ProductService {
     return this.http.post('https://productdemo-85335-default-rtdb.firebaseio.com/products.json', submittedProduct)
   }
 
-
-
   getAllProductsByCategories(): Observable<any> {
     return this.http.get('https://productdemo-85335-default-rtdb.firebaseio.com/products.json').pipe(
       map(responseObj => {
@@ -66,6 +64,11 @@ export class ProductService {
         return obj
       })
     )
+  }
+
+  getAProductById(id: string): Observable<any> {
+    return this.http.get(`https://productdemo-85335-default-rtdb.firebaseio.com/products/${id
+      }.json`)
   }
 
 

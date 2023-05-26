@@ -2,20 +2,34 @@
   <div class="container px-lg-5">
     <a class="navbar-brand" href="#!">
       <fa-icon [icon]="faDumpster"></fa-icon>
-      Shawpify
+      Shawpify <i class="fa-brands fa-facebook-messenger"></i>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-        class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <button (click)="handleToggle()" [ngClass]="{'collapsed': isOpen}" class="navbar-toggler" type="button"
+      data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div [ngClass]="{'show': isOpen}" class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" aria-current="page" routerLinkActive="active"
             [routerLinkActiveOptions]="{exact:true}" routerLink="/">Home</a></li>
         <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/products">Products</a></li>
         <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/contact">Contact</a></li>
+
         <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/products/new">Add New
             Product</a></li>
-        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/">Login</a></li>
+        <li class="nav-item"><a routerLink="/cart" routerLinkActive="active" class="nav-link">Cart</a></li>
+        <li (click)="logout()" class="nav-item"><a class="nav-link">Logout</a></li>
+
+        <!-- <ng-container *ngIf="(currentLoginStatus$ | async) as currentLogin; else loginTemplate">
+          <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/products/new">Add New
+              Product</a></li>
+          <li class="nav-item"><a routerLink="/cart" routerLinkActive="active" class="nav-link">Cart</a></li>
+          <li (click)="logout()" class="nav-item"><a class="nav-link">Logout</a></li>
+        </ng-container> -->
+
+        <ng-template #loginTemplate>
+          <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/login">Login</a></li>
+        </ng-template>
+
       </ul>
     </div>
   </div>

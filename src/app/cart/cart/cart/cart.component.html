@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <div class="card text-center">
+    <div class="card-header">
+      Shopping Cart
+    </div>
+    <div class="card-body">
+      <ng-container *ngIf="(cart$ | async) as cart">
+        <ul *ngIf="cart.length; else emptyCart">
+          <app-cart-item [cartItem]="cartItem" *ngFor="let cartItem of cart"></app-cart-item>
+        </ul>
+      </ng-container>
+
+      <ng-template #emptyCart>
+        <h1> No items added to cart</h1>
+      </ng-template>
+
+    </div>
+    <div class="card-footer">
+      <p class="text-end fs-4">Total is
+        <strong>
+          <span *ngIf="(cartTotal$ | async) as total; else noPrice"> {{ total | currency }}</span>
+          <ng-template #noPrice> <span> {{ 0.00 | currency }} </span> </ng-template>
+        </strong>
+      </p>
+      <button type="button" class="btn btn-dark mb-4">Check out</button>
+    </div>
+  </div>
+</div>
